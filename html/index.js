@@ -5,6 +5,24 @@ function buttonState1(){
     if(hide1){
         document.getElementById('div1').innerHTML = text;
         hide1=false;
+        // FALTA URL SERVIDOR 
+        //request.post(
+        //    '',
+        //    {
+        //      json: {
+        //        id: _id_envio,
+        //        estado: _estado
+        //      },
+        //    },
+        //    (error, res, body) => {
+        //      if (error) {
+        //        console.error(error);
+        //        return;
+        //      }
+        //      console.log(`statusCode: ${res.statusCode}`);
+        //      console.log(body);
+        //    }
+        //);
     }else{
         document.getElementById('div1').innerHTML = null;
         hide1=true;
