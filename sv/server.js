@@ -93,9 +93,12 @@ app.post('/state', async function(req, res) {
     }else if(state=="12"){
       text = "¡Enhorabuena, tu operación ha sido validada! Para que tu gestor contacte contigo, accede a la sección “Firma” a través de este link https://hipoteca.evobanco.com/portal-hipotecas";
     }
-    const dialogflowResponse = (await sessionClient.detectIntent(
-        text, id, body)).fulfillmentText;
-    const twiml = new  MessagingResponse();
-    const message = twiml.message(dialogflowResponse);
-    res.send(twiml.toString());
+    //const dialogflowResponse = (await sessionClient.detectIntent(
+    //    text, id, body)).fulfillmentText;
+    //const twiml = new  MessagingResponse();
+    //const message = twiml.message(dialogflowResponse);
+   // res.send(twiml.toString());
+   client.messages
+  .create({from: 'whatsapp:+14155238886', body: (text), to: phone})
+  .then(message => console.log(message.sid));
 });
