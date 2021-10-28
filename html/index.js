@@ -1,65 +1,89 @@
-var text = '<p>Estado enviado</p>';
-var hide1=true, hide2=true, hide3=true, hide4=true;
-
-function buttonState1(){
-    if(hide1){
-        document.getElementById('div1').innerHTML = text;
-        hide1=false;
-        // sendState(1);
-    }else{
-        document.getElementById('div1').innerHTML = null;
-        hide1=true;
+function hideUnhide(nameDiv) {
+    var x = document.getElementById(nameDiv);
+    if (x.style.visibility == "hidden") {
+        x.innerHTML="Enviado";
+        x.style.visibility = "visible";
+    } else {
+        x.innerHTML=null;
+        x.style.visibility = "hidden";
     }
+  }
+
+function botonEstadoInicioTramite(){
+    hideUnhide("div1");
+    sendState(1);
 }
 
-function buttonState2(){
-    if(hide2){
-        document.getElementById('div2').innerHTML = text;
-        hide2=false;
-        // sendState(2);
-    }else{
-        document.getElementById('div2').innerHTML = null;
-        hide2=true;
-    }
+function botonEstadoPrecontractual(){
+    hideUnhide("div2");
+    sendState(2);
 }
 
-function buttonState3(){
-    if(hide3){
-        document.getElementById('div3').innerHTML = text;
-        hide3=false;
-        // sendState(3);
-    }else{
-        document.getElementById('div3').innerHTML = null;
-        hide3=true;
-    }
+function botonEstadoPrecontractualFirmado(){
+    hideUnhide("div3");
+    sendState(3);
 }
 
-function buttonState4(){
-    if(hide4){
-        document.getElementById('div4').innerHTML = text;
-        hide4=false;
-        // sendState(4);
-    }else{
-        document.getElementById('div4').innerHTML = null;
-        hide4=true;
-    }
+function botonEstadoNSPendiente(){
+    hideUnhide("div4");
+    sendState(4);
 }
 
-// function sendState(nState){
-//     request.post(
-//         'https://dialogflow-twilio-oflt44nnna-lm.a.run.app/state',
-//         {
-//           json: {
-//             estado: nState
-//           },
-//         },
-//         (error, res, body) => {
-//           if (error) {
-//             console.error(error);
-//             return;
-//           }
-//           console.log(`statusCode: ${res.statusCode}`);
-//           console.log(body);
-//         }
-//     );
-// }
+function botonEstadoNSSolicitada(){
+    hideUnhide("div5");
+    sendState(5);
+}
+
+function botonEstadoComprobarListaVD(){
+    hideUnhide("div6");
+    sendState(6);
+}
+
+function botonEstadoDocumentacionVSAdiciconal(){
+    hideUnhide("div7");
+    sendState(7);
+}
+
+function botonEstadoTasacionPendiente(){
+    hideUnhide("div8");
+    sendState(8);
+}
+
+function botonEstadoTasacionPagada(){
+    hideUnhide("div9");
+    sendState(9);
+}
+
+function botonEstadoVisitaFinalizada(){
+    hideUnhide("div10");
+    sendState(10);
+}
+
+function botonEstadoDocAdicionalGarantiasVT(){
+    hideUnhide("div11");
+    sendState(11);
+}
+
+function botonEstadoAprobaciónFinal(){
+    hideUnhide("div12");
+    sendState(12);
+}
+
+function sendState(nState){
+    request.post(
+        'https://dialogflow-twilio-oflt44nnna-lm.a.run.app/state',
+        {
+          json: {
+            estado: nState
+          },
+        },
+        (error, res, body) => {
+          if (error) {
+            console.error(error);
+            return;
+          }
+          console.log(`statusCode: ${res.statusCode}`);
+          console.log(body);
+        }
+    );
+}

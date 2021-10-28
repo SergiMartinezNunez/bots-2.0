@@ -1,25 +1,36 @@
 body {
-    background-color: black;
-    color: azure;
+    background-color: rgb(204, 206, 211);
     font-size: 1.1em;
 }
 
 h1 {  
-    color: white;  
+    color: black;  
     margin: 20px; 
     display: flex;
     justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }  
 
 button{
-    height:20px; 
-    width:100px; 
-    margin: -20px -50px; 
-    position:relative;
-    top:50%; 
-    left:50%;
+    height:40px; 
+    width:450px; 
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    border-radius: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 div{
+    width: auto;
     text-align:center;
+    margin-top: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+#buttons {
+    border-style: none;
+    width: 100%;
+    margin-bottom: 50px;
 }

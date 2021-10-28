@@ -20,8 +20,6 @@
  const bodyParser = require('body-parser');
 
 
-
- 
  app.use(bodyParser.json());
  app.use(bodyParser.urlencoded({ extended: true }));
  app.set('port', process.env.PORT || 3000);
@@ -36,7 +34,8 @@
  const phoneNumber = "+19852395883";
  const accountSid = 'AC2c6b3c391ccf76477ea445e256db5ddb';
  const authToken = '4d3a07bf9b45e8e3bcc1a7824a60eb78';
- 
+ var phone;
+
  const client = require('twilio')(accountSid, authToken);
  const MessagingResponse = require('twilio').twiml.MessagingResponse;
  const sessionClient = new dialogflowSessionClient(projectId);
@@ -50,6 +49,7 @@
    const body = req.body;
    const text = body.Body;
    const id = body.From;
+   phone = body.From;
    const dialogflowResponse = (await sessionClient.detectIntent(
        text, id, body)).fulfillmentText;
    const twiml = new  MessagingResponse();
@@ -64,21 +64,38 @@
    });
  });
 
-//  app.post('/state', async function(req, res) {
-//     const body = req.body;
-//     const state = body.estado;
-//     if(state=="1"){
-// 
-//     }else if(state=="2"){
-// 
-//     }else if(state=="3"){
-//       
-//     }else if(state=="4"){
-// 
-//     }
-//     const dialogflowResponse = (await sessionClient.detectIntent(
-//         text, id, body)).fulfillmentText;
-//     const twiml = new  MessagingResponse();
-//     const message = twiml.message(dialogflowResponse);
-//     res.send(twiml.toString());
-// });
+app.post('/state', async function(req, res) {
+    const body = req.body;
+    const state = body.estado;
+     var text;
+    if(state=="1"){
+      text = "Enhorabuena! Tu solicitud de hipoteca ha sido preaprobada.  Continuamos con los próximos pasos para que pronto puedas tener en tus manos la llave de tu casa.";
+    }else if(state=="2"){
+      text = "Te hemos enviado la  Ficha de Información Precontractual (FIPRE). Se trata de un documento meramente informativo (no vinculante),  que contiene información general del préstamo hipotecario. Recuerda que la clave para poder descargar dicho documento, es tu número de teléfono móvil, seguido de la letra de tu DNI mayúscula.";
+    }else if(state=="3"){
+      text = "Tu solicitud de hipoteca tiene el código XXXXX(nº caso), la solicitud irá pasando por diferentes estados.  Si en algún momento quieres realizar una consulta de estado solo tienes que escribirnos.";
+    }else if(state=="4"){
+      text = "¡Listo! Ya puedes seguir completando los pasos de tu solicitud de hipoteca. Puedes volver a acceder al portal pulsando en el siguiente enlace https://hipoteca.evobanco.com/portal-hipotecas";
+    }else if(state=="5"){
+      text = "Para continuar analizando tu hipoteca, necesitamos que solicites o adjuntes la nota simple (con una antiguedad máxima de tres meses).";
+    }else if(state=="6"){
+      text = "Estamos revisando la información que nos has facilitado. Te avisaremos en cuanto puedas continuar con el proceso de contratación.";
+    }else if(state=="7"){
+      text = "Para continuar analizando tu hipoteca, es necesario que incluyas en el apartado “Documentación adicional” los siguientes documentos: Nómina de noviembre y contrato de arras o compraventa";
+    }else if(state=="8"){
+      text = "¡Bien! Ya tenemos tu nota simple y toda la documentación. Ya puedes solicitar la tasación a través del portal. Si ya dispones de ella, adjúntala en el apartado “Tasación” (válida siempre que no tenga una antigüedad superior a 6 meses). Accede al portal para realizar esta  gestión a través del siguiente  https://hipoteca.evobanco.com/portal-hipotecas ";
+    }else if(state=="9"){
+      text = "Te informamos que el pago de la tasación se ha efectuado con éxito";
+    }else if(state=="10"){
+      text = "¡Bien! Ya hemos concertado una cita para hacer la visita y realizar la tasación. Te avisaremos cuando esté realizada para avanzar al siguiente paso.";
+    }else if(state=="11"){
+      text = "Ya disponemos de tu tasación. Te avisaremos cuando haya sido revisada.";
+    }else if(state=="12"){
+      text = "¡Enhorabuena, tu operación ha sido validada! Para que tu gestor contacte contigo, accede a la sección “Firma” a través de este link https://hipoteca.evobanco.com/portal-hipotecas";
+    }
+    const dialogflowResponse = (await sessionClient.detectIntent(
+        text, id, body)).fulfillmentText;
+    const twiml = new  MessagingResponse();
+    const message = twiml.message(dialogflowResponse);
+    res.send(twiml.toString());
+});
