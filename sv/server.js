@@ -18,7 +18,14 @@
  const app = express();
  const dialogflowSessionClient = require('../botlib/dialogflow_session_client.js');
  const bodyParser = require('body-parser');
-
+ // const cors=require("cors");
+ // const corsOptions ={
+ //    origin:'*', 
+ //    credentials:true,            //access-control-allow-credentials:true
+ //    optionSuccessStatus:200,
+ // }
+ // 
+ // app.use(cors(corsOptions)) // Use this after the variable declaration
 
  app.use(bodyParser.json());
  app.use(bodyParser.urlencoded({ extended: true }));
@@ -46,6 +53,8 @@
  });
  
  app.post('/', async function(req, res) {
+   console.log("req '/' ->" + req);
+   console.log("req.body '/' ->" + req.body);
    const body = req.body;
    const text = body.Body;
    const id = body.From;
@@ -65,8 +74,14 @@
  });
 
 app.post('/state', async function(req, res) {
+    console.log("He rebut una peticio");
+    console.log("Req -> " + req);
     const body = req.body;
     const state = body.estado;
+    phone = 'whatsapp:+34616099575';
+    // var json = JSON.stringify(req.body);
+    // console.log("json -> " + json);
+    // FI NOU
      var text;
     if(state=="1"){
       text = "Enhorabuena! Tu solicitud de hipoteca ha sido preaprobada.  Continuamos con los próximos pasos para que pronto puedas tener en tus manos la llave de tu casa.";
@@ -98,7 +113,12 @@ app.post('/state', async function(req, res) {
     //const twiml = new  MessagingResponse();
     //const message = twiml.message(dialogflowResponse);
    // res.send(twiml.toString());
+   console.log("Abans d'enviar la resposta");
+   // console.log("body -> " + body);
+   console.log("state -> " + state);
+   console.log("text -> " + text);
+   console.log("phone -> " + phone);
    client.messages
-  .create({from: 'whatsapp:+14155238886', body: (text), to: phone})
-  .then(message => console.log(message.sid));
+    .create({from: 'whatsapp:+14155238886', body: (text), to: 'whatsapp:+34616099575'})
+    .then(message => console.log(message.sid));
 });
