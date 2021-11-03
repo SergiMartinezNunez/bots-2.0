@@ -18,14 +18,13 @@
  const app = express();
  const dialogflowSessionClient = require('../botlib/dialogflow_session_client.js');
  const bodyParser = require('body-parser');
- // const cors=require("cors");
- // const corsOptions ={
- //    origin:'*', 
- //    credentials:true,            //access-control-allow-credentials:true
- //    optionSuccessStatus:200,
- // }
- // 
- // app.use(cors(corsOptions)) // Use this after the variable declaration
+  const cors=require("cors");
+  const corsOptions ={
+     origin:'*', 
+     credentials:true,            //access-control-allow-credentials:true
+     optionSuccessStatus:200,
+  } 
+  app.use(cors(corsOptions)) // Use this after the variable declaration
 
  app.use(bodyParser.json());
  app.use(bodyParser.urlencoded({ extended: true }));
