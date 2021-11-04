@@ -77,7 +77,7 @@ app.post('/state', async function(req, res) {
     console.log("Req -> " + req);
     const body = req.body;
     const state = body.estado;
-    phone = 'whatsapp:+34616099575';
+    phone = 'whatsapp:+34'+body.phone;
     // var json = JSON.stringify(req.body);
     // console.log("json -> " + json);
     // FI NOU

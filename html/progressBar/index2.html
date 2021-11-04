@@ -4,14 +4,51 @@
     <link rel="stylesheet" href="style2.css">
 <body>
 
-<h1>JavaScript Progress Bar</h1>
+<h1>Demostración asistente virtual EvoBank<h1>
 
-<div id="myProgress">
+<div>
+    <p class="description">Explició sobre el funcionament del bot .......................................................</p>
+    <br>
+    <label for="phone">Entra un número de telefono para hacer la prueba:</label>
+    <br>
+    <input type="tel" id="phone" name="phone" pattern="[0-9]{9}" required>
+    <br>
+    <small>Formato: 123456789</small>
+    <br>
+    <input id="buttonPhoneNumber" type="submit" value="Iniciar prueba" onclick="init()">
+</div>
+
+<div id="error"></div>
+
+<div id="myProgress"  style="visibility: hidden;">
     <div id="myBar"></div>
 </div>
 
 <br>
-<button onclick="move()">Click Me</button> 
+<div id="buttons" style="visibility: hidden;">
+    <button onclick="move()">Anterior estado</button> 
+    <button onclick="move()">Siguiente estado</button> 
+</div>
 
+<br>
+<div id="wrapper"  style="visibility: hidden;">
+    <div class="left">
+        <h2>Estados disponibles para testear</h2>
+        <button id="buttonState" onclick="move()">Enviar bienvenida (Paso 0)</button> 
+        <button id="buttonState" onclick="move()">Enviar firma documentación precontractual (Paso 6)</button>
+        <button id="buttonState" onclick="move()">Enviar notificación documentación precontractual recibida (Paso 6.1)</button>
+        <button id="buttonState" onclick="move()">Enviar NS Pendiente (Paso 7)</button>
+        <button id="buttonState" onclick="move()">Enviar NS Solicitada (Paso 8)</button>
+        <button id="buttonState" onclick="move()">Enviar check list VD (Paso 10)</button>
+        <button id="buttonState" onclick="move()">Enviar petición Docu adicional VD (Paso 13)</button>
+        <button id="buttonState" onclick="move()">Enviar tasación pendiente (Paso 19)</button>
+        <button id="buttonState" onclick="move()">Enviar tasación pagado (Paso 23)</button>
+        <button id="buttonState" onclick="move()">Enviar visita finalizada (Paso 27)</button>
+        <button id="buttonState" onclick="move()">Enviar petición documentación adicional garantias VT (Paso 30)</button>
+        <button id="buttonState" onclick="move()">Enviar aprobación final hipoteca(Paso 35)</button>
+    </div>
+    <div class="right">2</div>
+</div>
+<br>
 </body>
 </html>
