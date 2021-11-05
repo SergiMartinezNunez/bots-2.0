@@ -118,6 +118,6 @@ app.post('/state', async function(req, res) {
    console.log("text -> " + text);
    console.log("phone -> " + phone);
    client.messages
-    .create({from: 'whatsapp:+14155238886', body: (text), to: 'whatsapp:+34616099575'})
+    .create({from: 'whatsapp:+14155238886', body: (text), to: phone})
     .then(message => console.log(message.sid));
 });

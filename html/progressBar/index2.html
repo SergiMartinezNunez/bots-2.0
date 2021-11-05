@@ -7,7 +7,11 @@
 <h1>Demostración asistente virtual EvoBank<h1>
 
 <div>
-    <p class="description">Explició sobre el funcionament del bot .......................................................</p>
+    <div id="description">Para utilitzar el asistente virtual se requiere conectarse a
+         la sandbox de Twilio. Para hacerlo se a de agregar el siguiente número: +1(415)523-8886. 
+         Una vez agregado, lo único que falta por hacer es enviarle el mensaje "join vowel-journey" 
+         para connectarse al agente.
+    </div>
     <br>
     <label for="phone">Entra un número de telefono para hacer la prueba:</label>
     <br>
@@ -34,20 +38,29 @@
 <div id="wrapper"  style="visibility: hidden;">
     <div class="left">
         <h2>Estados disponibles para testear</h2>
-        <button id="buttonState" onclick="move()">Enviar bienvenida (Paso 0)</button> 
-        <button id="buttonState" onclick="move()">Enviar firma documentación precontractual (Paso 6)</button>
-        <button id="buttonState" onclick="move()">Enviar notificación documentación precontractual recibida (Paso 6.1)</button>
-        <button id="buttonState" onclick="move()">Enviar NS Pendiente (Paso 7)</button>
-        <button id="buttonState" onclick="move()">Enviar NS Solicitada (Paso 8)</button>
-        <button id="buttonState" onclick="move()">Enviar check list VD (Paso 10)</button>
-        <button id="buttonState" onclick="move()">Enviar petición Docu adicional VD (Paso 13)</button>
-        <button id="buttonState" onclick="move()">Enviar tasación pendiente (Paso 19)</button>
-        <button id="buttonState" onclick="move()">Enviar tasación pagado (Paso 23)</button>
-        <button id="buttonState" onclick="move()">Enviar visita finalizada (Paso 27)</button>
-        <button id="buttonState" onclick="move()">Enviar petición documentación adicional garantias VT (Paso 30)</button>
-        <button id="buttonState" onclick="move()">Enviar aprobación final hipoteca(Paso 35)</button>
+        <button id="buttonState" onclick="sendState(1)">Enviar bienvenida (Paso 0)</button> 
+        <button id="buttonState" onclick="sendState(2)">Enviar firma documentación precontractual (Paso 6)</button>
+        <button id="buttonState" onclick="sendState(3)">Enviar notificación documentación precontractual recibida (Paso 6.1)</button>
+        <button id="buttonState" onclick="sendState(4)">Enviar NS Pendiente (Paso 7)</button>
+        <button id="buttonState" onclick="sendState(5)">Enviar NS Solicitada (Paso 8)</button>
+        <button id="buttonState" onclick="sendState(6)">Enviar check list VD (Paso 10)</button>
+        <button id="buttonState" onclick="sendState(7)">Enviar petición Docu adicional VD (Paso 13)</button>
+        <button id="buttonState" onclick="sendState(8)">Enviar tasación pendiente (Paso 19)</button>
+        <button id="buttonState" onclick="sendState(9)">Enviar tasación pagado (Paso 23)</button>
+        <button id="buttonState" onclick="sendState(10)">Enviar visita finalizada (Paso 27)</button>
+        <button id="buttonState" onclick="sendState(11)">Enviar petición documentación adicional garantias VT (Paso 30)</button>
+        <button id="buttonState" onclick="sendState(12)">Enviar aprobación final hipoteca(Paso 35)</button>
     </div>
-    <div class="right">2</div>
+    <div class="right">
+        <table class="default">
+            <tr>
+              <td>Celda 1</td>
+            </tr>
+            <tr>
+              <td>Celda 2</td>
+            </tr>
+          </table>
+    </div>
 </div>
 <br>
 </body>

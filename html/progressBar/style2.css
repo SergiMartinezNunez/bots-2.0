@@ -3,21 +3,18 @@ body {
     margin-right: 50px;
     margin-left: 50px;
 }
-
 h1 {  
     color: black;  
-    font-size: 1.5em;
+    font-size: 2em;
     margin: 20px; 
     text-align: center;
     font-family: Calibri, Geneva, Tahoma, sans-serif; 
 }  
-
 h2{
     text-align: center;
     font-size: 0.7em;
     margin: 0px;
 }
-
 label{
     font-size: 0.7em;
     margin-bottom: 0px;
@@ -26,13 +23,11 @@ small{
     font-size: 0.5em;
     margin-top: 0px;
 }
-
 #myProgress {
     margin-top: 10px;
     width: 100%;
     background-color: #ddd;
 }
-
 #myBar {
   width: 0%;
   height: 30px;
@@ -41,12 +36,10 @@ small{
   line-height: 30px; /* To center it vertically */
   color: white;
 }
-
 #wrapper{
     margin: 10px;
     text-align:center;
 }
-
 div.left {
     margin-right: 5px;
     box-sizing: border-box;  /* <------- required */
@@ -54,14 +47,12 @@ div.left {
     float: left;  /* <------------------ required */
     border: 1px solid red;
 }
-
 div.right {
     height: auto;
   margin-left: 5px;
   overflow: hidden;  /* <------------- required */
   border: 1px solid red;
 }
-
 #buttonState{
   height:auto; 
   width:80%; 
@@ -72,8 +63,19 @@ div.right {
   border-radius: 10px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
 #error{
     color: red;
     font-size: 0.6em;
 }
+#description{
+    font-size: 0.5em;
+}
+table {
+   width: 100%;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+}
+
