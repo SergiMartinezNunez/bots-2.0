@@ -22,27 +22,31 @@ function move() {
   }
 } */
 
-function init(){
+function init() {
   var phone = document.getElementById("phone").value;
-  if(phone.length!=9){
+  if (phone.length != 9) {
     document.getElementById("error").innerHTML = '<p>Introduzca un número de telefono válido<p>';
-  }else{
+  } else {
     document.getElementById("myProgress").style.visibility = "visible";
-    document.getElementById("wrapper").style.visibility = "visible";
+    //document.getElementById("wrapper").style.visibility = "visible";
+    document.getElementById("requestTable").style.visibility = "visible";
+    document.getElementById("processTable1").style.visibility = "visible";
+    document.getElementById("processTable2").style.visibility = "visible";
+    document.getElementById("formalizationTable").style.visibility = "visible";
     document.getElementById("buttons").style.visibility = "visible";
     document.getElementById("buttonPhoneNumber").value = "Cambiar número";
-    document.getElementById("buttonPhoneNumber").onclick = function () {  changeNumber(); };
+    document.getElementById("buttonPhoneNumber").onclick = function () { changeNumber(); };
     phoneNumber = phone;
-    alert(phoneNumber);
+    // alert(phoneNumber);
     document.getElementById("error").innerHTML = '';
   }
 }
 
-function changeNumber(){
+function changeNumber() {
   var phone = document.getElementById("phone").value;
-  if(phone.length!=9){
+  if (phone.length != 9) {
     document.getElementById("error").innerHTML = '<p>Introduzca un número de telefono válido<p>';
-  }else{
+  } else {
     phoneNumber = phone;
     alert(phoneNumber);
     document.getElementById("error").innerHTML = '';
@@ -70,26 +74,23 @@ function move(maxim) {
   }
 }
 
-function sendState(nState){
+function sendState(nState) {
   var req = new XMLHttpRequest();
   req.onreadystatechange = function (aEvt) {
-      if (req.readyState == 4) {
-         if(req.status == 200)
-            console.log(req.responseText);
-         else
-            console.log("Error loading page\n");
-      }
-    };
+    if (req.readyState == 4) {
+      if (req.status == 200)
+        console.log(req.responseText);
+      else
+        console.log("Error loading page\n");
+    }
+  };
   req.open('POST', 'https://dialogflow-twilio-oflt44nnna-lm.a.run.app/state', true);
   req.setRequestHeader('Access-Control-Allow-Origin', '*');
   req.setRequestHeader('Content-Type', 'application/json');
-  var json = JSON.stringify({"estado": nState, "phone": phoneNumber});
+  var json = JSON.stringify({ "estado": nState, "phone": phoneNumber });
   req.send(json);
   // req.send(JSON.stringify({"estado": nState}));
-  console.log("json -> " + JSON.stringify({"estado": nState, "phone": phoneNumber}));
+  console.log("json -> " + JSON.stringify({ "estado": nState, "phone": phoneNumber }));
   console.log("req.body -> " + req.body);
   console.log("req -> " + req);
 }
-
-
-

@@ -72,10 +72,11 @@ div.right {
 }
 table {
    width: 100%;
+   font-size: 0.35em;
 }
 th, td {
    width: 25%;
-   text-align: left;
+   text-align: center;
    vertical-align: top;
 }
 
