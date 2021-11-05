@@ -8,11 +8,16 @@ body {
 h1 {  
     color: black;  
     font-size: 2em;
-    margin-top: 0px;
+    margin-top: 7px;
     padding: 20px;
     margin-bottom: 30px;
     text-align: center;
-    background-color: rgb(241, 181, 154);
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    border-width: 7px;
+    margin-left: 7px;
+    margin-right: 7px;
     font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;  
     height: 55px;
 }  
@@ -32,6 +37,8 @@ small{
 #myProgress {
     margin: 20px; 
     background-color: #ddd;
+    border-radius: 10px;
+    border-style: solid;
 }
 #myBar {
   width: 0%;
@@ -40,6 +47,9 @@ small{
   text-align: center; /* To center it horizontally (if you want) */
   line-height: 30px; /* To center it vertically */
   color: white;
+  border-radius: 8px;
+  border-style: solid;
+  border-color:#04AA6D;
 }
 #buttons{
     margin: 20px;
@@ -47,6 +57,7 @@ small{
 #wrapper{
     margin: 20px;
     text-align:center;
+    padding: 15px;
 }
 div.left {
     margin-right: 5px;
@@ -54,12 +65,17 @@ div.left {
     width: 50%;  /* <------------------- required */
     float: left;  /* <------------------ required */
     border: 1px solid red;
+    font-size: 20pt;
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+    font-weight: bold;  
 }
 div.right {
-    height: auto;
-  margin-left: 5px;
-  overflow: hidden;  /* <------------- required */
-  border: 1px solid red;
+    margin-left: 5px;
+    overflow: hidden;  /* <------------- required */
+    border: 1px solid red;
+    font-size: 20pt;
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;
+    font-weight: bold;  
 }
 #buttonState{
   height:auto; 
@@ -78,7 +94,7 @@ div.right {
 /*#description{
     font-size: 12pt;
 }*/
-#primerDiv{
+.Div{
     font-size: 12pt;
     margin-top: 5px;
     margin: 20px; 
@@ -87,14 +103,27 @@ div.right {
     background-color: white;  
     padding: 20px;
     border-radius: 10px;
+
+    /*border-style: solid;
+    border-color: black;
+    border-width: 7px;
+    margin-left: 7px;
+    margin-right: 7px;*/
+}
+#segonDiv{
+    margin-bottom: 35px;
+    height: auto;
 }
 table {
    width: 100%;
-   font-size: 0.35em;
+   font-size: 0.55em;
 }
 th, td {
    width: 25%;
    text-align: center;
    vertical-align: top;
 }
-
+.selectableRow:hover {
+    background-color: lightyellow;
+    cursor: pointer;
+}

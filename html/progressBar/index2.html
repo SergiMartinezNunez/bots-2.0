@@ -7,7 +7,7 @@
 
     <h1>Demostración asistente virtual EvoBank</h1>
 
-    <div id="primerDiv">
+    <div class="Div" id="primerDiv">
         <div id="description">Para utilitzar el asistente virtual se requiere conectarse a
             la sandbox de Twilio. Para hacerlo se a de agregar el siguiente número: +1(415)523-8886.
             Una vez agregado, lo único que falta por hacer es enviarle el mensaje "join vowel-journey"
@@ -21,478 +21,202 @@
         <small>Formato: 123456789</small>
         <br>
         <input id="buttonPhoneNumber" type="submit" value="Iniciar prueba" onclick="init()">
+        <div id="error"></div>
+
+
     </div>
 
-    <div id="error"></div>
+    <div class="Div" id="segonDiv" style="visibility: hidden;">
+        <div id="myProgress">
+            <div id="myBar"></div>
+        </div>
+        <div id="lastSent"></div>
+        <div id="wrapper">
+            <div class="left">
+                <table id="requestTable" class="default" style="visibility: hidden;">
+                    <caption>Solicitud</caption>
+                    <tr class="selectableRow" onclick="move(1)">
+                        <td>0 - Preaprobación</td>
+                    </tr>
+                    <tr>
+                        <td>1 - Autorizaciones</td>
+                    </tr>
+                    <tr>
+                        <td>2 - Datos personales</td>
+                    </tr>
+                </table>
 
-    <div id="myProgress" style="visibility: hidden;">
-        <div id="myBar"></div>
+                <table id="processTable1" class="default" style="visibility: hidden;">
+                    <caption>Proceso hipotecario</caption>
+                    <tr>
+                        <td>3 - Datos económicos</td>
+                    </tr>
+                    <tr>
+                        <td>4 - Datos Vivienda</td>
+                    </tr>
+                    <tr>
+                        <td>5 - Pendiente documentación</td>
+                    </tr>
+                    <tr class="selectableRow" onclick="move(2)">
+                        <td>6 - Firma documentación precontractual</td>
+                    </tr>
+                    <tr class="selectableRow" onclick="move(3)">
+                        <td>6.1 - Assignación código solicitud</td>
+                    </tr>
+                    <tr class="selectableRow" onclick="move(4)">
+                        <td>7 - En Sanción</td>
+                    </tr>
+                    <tr class="selectableRow" onclick="move(5)">
+                        <td>8 - NS Pendiente</td>
+                    </tr>
+                    <tr>
+                        <td>9 - NS Solicitada</td>
+                    </tr>
+                    <tr class="selectableRow" onclick="move(6)">
+                        <td>10 - Check list VD</td>
+                    </tr>
+                    <tr>
+                        <td>11 - Revisión VD</td>
+                    </tr>
+                    <tr>
+                        <td>12 - NS en revisión por garantías</td>
+                    </tr>
+                    <tr class="selectableRow" onclick="move(7)">
+                        <td>13 - Petición Docu adicional VD</td>
+                    </tr>
+                    <tr>
+                        <td>14 - Petición Docu adicional Garantías</td>
+                    </tr>
+                    <tr>
+                        <td>15 - Petición Docu adicional Garantías-VD</td>
+                    </tr>
+                    <tr>
+                        <td>16 - Revisión analista de riesgos</td>
+                    </tr>
+                    <tr>
+                        <td>17 - Consulta duda riesgos</td>
+                    </tr>
+                    <tr>
+                        <td>138 - Petición docu adicional riesgos</td>
+                    </tr>
+                    <tr class="selectableRow" onclick="move(8)">
+                        <td>19 - Tasación pendiente</td>
+                    </tr>
+                    <tr>
+                        <td>20 - Tasación a validar</td>
+                    </tr>
+                    <tr>
+                        <td>21 - Tasación subsanada</td>
+                    </tr>
+                    <tr>
+                        <td>22 - Tasación pendiente de pago</td>
+                    </tr>
+                    <tr class="selectableRow" onclick="move(9)">
+                        <td>23 - Tasación pagado</td>
+                    </tr>
+                    <tr>
+                        <td>24 - Tasación solicitada</td>
+                    </tr>
+                    <tr>
+                        <td>25 - Pendiente visita tasación</td>
+                    </tr>
+                    <tr>
+                        <td>26 - Visita agendada</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="right">
+
+                <table id="processTable2" class="default" style="visibility: hidden;">
+                    <caption>Proceso hipotecario</caption>
+                    <tr class="selectableRow" onclick="move(10)">
+                        <td>27 - Visita finalizada</td>
+                    </tr>
+                    <tr>
+                        <td>28 - Pendiente emisión tasación</td>
+                    </tr>
+                    <tr>
+                        <td>29 - Tasación revisión garantías</td>
+                    </tr>
+                    <tr class="selectableRow" onclick="move(11)">
+                        <td>30 - Petición documentación adicional garantias VT</td>
+                    </tr>
+                </table>
+                <table id="formalizationTable" class="default" style="visibility: hidden;">
+                    <caption>Formalización</caption>
+                    <tr>
+                        <td>31 - Plantilla VT</td>
+                    </tr>
+                    <tr>
+                        <td>32 - Revisión VT</td>
+                    </tr>
+                    <tr>
+                        <td>33 - Consulta Riesgos desde VT</td>
+                    </tr>
+                    <tr>
+                        <td>34 - Revisión riesgos -1</td>
+                    </tr>
+                    <tr class="selectableRow" onclick="move(12)">
+                        <td>35 - Aprobación final hipoteca</td>
+                    </tr>
+                    <tr>
+                        <td>36 - Apertura de cuenta</td>
+                    </tr>
+                    <tr>
+                        <td>37 - Apertura de expediente</td>
+                    </tr>
+                    <tr>
+                        <td>38 - Elegido notario y fecha</td>
+                    </tr>
+                    <tr>
+                        <td>39 - Genración documentación</td>
+                    </tr>
+                    <tr>
+                        <td>40 - Documentación firmada</td>
+                    </tr>
+                    <tr>
+                        <td>41 - Pendiente firma</td>
+                    </tr>
+                    <tr>
+                        <td>42 - Subida documentación</td>
+                    </tr>
+                    <tr>
+                        <td>43 - Alta EE en protocolo notarios</td>
+                    </tr>
+                    <tr>
+                        <td>44 - Entegado a notario</td>
+                    </tr>
+                    <tr>
+                        <td>45 - Notario asignado</td>
+                    </tr>
+                    <tr>
+                        <td>46 - Pendiente subsanar errores</td>
+                    </tr>
+                    <tr>
+                        <td>47 - Errores subsanados</td>
+                    </tr>
+                    <tr>
+                        <td>48 - Acta emitida notario</td>
+                    </tr>
+                    <tr>
+                        <td>49 - Envío Doc. Contractual a notaría</td>
+                    </tr>
+                    <tr>
+                        <td>50 - Envío Doc. Contractual a gestoría</td>
+                    </tr>
+                    <tr>
+                        <td>51 - Pendiente en firma notaría</td>
+                    </tr>
+                    <tr>
+                        <td>52 - Pendiente activas expediente</td>
+                    </tr>
+                    <tr>
+                        <td>53 - Expediente activado</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
-
-    <br>
-    <div id="buttons" style="visibility: hidden;">
-        <button onclick="move()">Anterior estado</button>
-        <button onclick="move()">Siguiente estado</button>
-    </div>
-
-    <br>
-
-
-<div id="wrapper"  style="visibility: hidden;">
-    <div class="left">
-        <table  id="requestTable" class="default" style="visibility: hidden;">
-                        <caption>Solicitud</caption>
-                        <tr onclick="move(1)">
-                            <td>0</td>
-                            <td>Preaprobación</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Autorizaciones</td>
-                        </tr>
-                        <tr¡>
-                            <td>2</td>
-                            <td>Datos personales</td>
-                        </tr>
-        </table>
-    
-        <table id="processTable1" class="default" style="visibility: hidden;"> 
-                        <caption>Proceso hipotecario</caption>
-                        <tr>
-                            <td>3</td>
-                            <td>Datos económicos</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Datos Vivienda</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Pendiente documentación</td>
-                        </tr>
-                        <tr onclick="move(2)">
-                            <td>6</td>
-                            <td>Firma documentación precontractual</td>
-                        </tr>
-                        <tr onclick="move(3)">
-                            <td>6.1</td>
-                            <td>Assignación código solicitud</td>
-                        </tr>
-                        <tr onclick="move(4)">
-                            <td>7</td>
-                            <td>En Sanción</td>
-                        </tr>
-                        <tr onclick="move(5)">
-                            <td>8</td>
-                            <td>NS Pendiente</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>NS Solicitada</td>
-                        </tr>
-                        <tr onclick="move(6)">
-                            <td>10</td>
-                            <td>Check list VD</td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td>Revisión VD</td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td>NS en revisión por garantías</td>
-                        </tr>
-                        <tr onclick="move(7)">
-                            <td>13</td>
-                            <td>Petición Docu adicional VD</td>
-                        </tr>
-                        <tr>
-                            <td>14</td>
-                            <td>Petición Docu adicional Garantías</td>
-                        </tr>
-                        <tr>
-                            <td>15</td>
-                            <td>Petición Docu adicional Garantías-VD</td>
-                        </tr>
-                        <tr>
-                            <td>16</td>
-                            <td>Revisión analista de riesgos</td>
-                        </tr>
-                        <tr>
-                            <td>17</td>
-                            <td>Consulta duda riesgos</td>
-                        </tr>
-                        <tr>
-                            <td>18</td>
-                            <td>Petición docu adicional riesgos</td>
-                        </tr>
-                        <tr onclick="move(8)">
-                            <td>19</td>
-                            <td>Tasación pendiente</td>
-                        </tr>
-                        <tr>
-                            <td>20</td>
-                            <td>Tasación a validar</td>
-                        </tr>
-                        <tr>
-                            <td>21</td>
-                            <td>Tasación subsanada</td>
-                        </tr>
-                        <tr>
-                            <td>22</td>
-                            <td>Tasación pendiente de pago</td>
-                        </tr>
-                        <tr onclick="move(9)">
-                            <td>23</td>
-                            <td>Tasación pagado</td>
-                        </tr>
-                        <tr>
-                            <td>24</td>
-                            <td>Tasación solicitada</td>
-                        </tr>
-                        <tr>
-                            <td>25</td>
-                            <td>Pendiente visita tasación</td>
-                        </tr>
-                        <tr>
-                            <td>26</td>
-                            <td>Visita agendada</td>
-                        </tr>
-        </table>
-    </div>
-    <div class="right">
-        <!--
-<table class="default" id="tableId">
-            <tr id="row1" onclick="">
-                <td>1</td>
-                <td>Autorizaciones</td>
-            </tr>
-            <tr id="row2">
-                <td>2</td>
-                <td>Datos personales</td>
-            </tr>
-            <tr id="row3">
-                <td>3</td>
-                <td>Datos económicos</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Datos Vivienda</td>
-            </tr>
-            <tr id="row4">
-                <td>5</td>
-                <td>Pendiente documentación</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Firma documentación precontractual</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>En Sanción</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>NS Pendiente</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>NS Solicitada</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>Check list VD</td>
-            </tr>
-            <tr>
-                <td>11</td>
-                <td>Revisión VD</td>
-            </tr>
-            <tr>
-                <td>12</td>
-                <td>NS en revisión por garantías</td>
-            </tr>
-            <tr>
-                <td>13</td>
-                <td>Petición Docu adicional VD</td>
-            </tr>
-            <tr>
-                <td>14</td>
-                <td>Petición Docu adicional Garantías</td>
-            </tr>
-            <tr>
-                <td>15</td>
-                <td>Petición Docu adicional Garantías-VD</td>
-            </tr>
-            <tr>
-                <td>16</td>
-                <td>Revisión analista de riesgos</td>
-            </tr>
-            <tr>
-                <td>17</td>
-                <td>Consulta duda riesgos</td>
-            </tr>
-            <tr>
-                <td>18</td>
-                <td>Petición docu adicional riesgos</td>
-            </tr>
-            <tr>
-                <td>19</td>
-                <td>Tasación pendiente</td>
-            </tr>
-            <tr>
-                <td>20</td>
-                <td>Tasación  a validar</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>Tasación subsanada</td>
-            </tr>
-            <tr>
-                <td>22</td>
-                <td>Tasación pendiente de pago</td>
-            </tr>
-            <tr>
-                <td>23</td>
-                <td>Tasación pagado</td>
-            </tr>
-            <tr>
-                <td>24</td>
-                <td>Tasación solicitada</td>
-            </tr>
-            <tr>
-                <td>25</td>
-                <td>Pendiente visita tasación</td>
-            </tr>
-            <tr>
-                <td>26</td>
-                <td>Visita agendada</td>
-            </tr>
-            <tr>
-                <td>27</td>
-                <td>Visita finalizada</td>
-            </tr>
-            <tr>
-                <td>28</td>
-                <td>Pendiente emisión tasación</td>
-            </tr>
-            <tr>
-                <td>29</td>
-                <td>Tasación revisión garantías</td>
-            </tr>
-            <tr>
-                <td>30</td>
-                <td>Petición documentación adicional garantias VT</td>
-            </tr>
-            <tr>
-                <td>31</td>
-                <td>Plantilla VT</td>
-            </tr>
-            <tr>
-                <td>32</td>
-                <td>Revisión VT</td>
-            </tr>
-            <tr>
-                <td>33</td>
-                <td>Consulta Riesgos desde VT</td>
-            </tr>
-            <tr>
-                <td>34</td>
-                <td>Revisión riesgos -1</td>
-            </tr>
-            <tr>
-                <td>35</td>
-                <td>Aprobación final hipoteca</td>
-            </tr>
-            <tr>
-                <td>36</td>
-                <td>Apertura de cuenta</td>
-            </tr>
-            <tr>
-                <td>37</td>
-                <td>Apertura de expediente</td>
-            </tr>
-            <tr>
-                <td>38</td>
-                <td>Elegido notario y fecha</td>
-            </tr>
-            <tr>
-                <td>39</td>
-                <td>Genración documentación</td>
-            </tr>
-            <tr>
-                <td>40</td>
-                <td>Documentación firmada</td>
-            </tr>
-            <tr>
-                <td>41</td>
-                <td>Pendiente firma</td>
-            </tr>
-            <tr>
-                <td>42</td>
-                <td>Subida documentación</td>
-            </tr>
-            <tr>
-                <td>43</td>
-                <td>Alta EE en protocolo notarios</td>
-            </tr>
-            <tr>
-                <td>44</td>
-                <td>Entegado a notario</td>
-            </tr>
-            <tr>
-                <td>45</td>
-                <td>Notario asignado</td>
-            </tr>
-            <tr>
-                <td>46</td>
-                <td>Pendiente subsanar errores</td>
-            </tr>
-            <tr>
-                <td>47</td>
-                <td>Errores subsanados</td>
-            </tr>
-            <tr>
-                <td>48</td>
-                <td>Acta emitida notario</td>
-            </tr>
-            <tr>
-                <td>49</td>
-                <td>Envío Doc. Contractual a notaría</td>
-            </tr>
-            <tr>
-                <td>50</td>
-                <td>Envío Doc. Contractual a gestoría</td>
-            </tr>
-            <tr>
-                <td>51</td>
-                <td>Pendiente en firma notaría</td>
-            </tr>
-            <tr>
-                <td>52</td>
-                <td>Pendiente activas expediente</td>
-            </tr>
-            <tr>
-                <td>53</td>
-                <td>Expediente activado</td>
-            </tr>
-          </table>
-        -->
-        <table id="processTable2" class="default" style="visibility: hidden;"> 
-            <caption>Proceso hipotecario</caption>
-            <tr onclick="move(10)">
-                <td>27</td>
-                <td>Visita finalizada</td>
-            </tr>
-            <tr>
-                <td>28</td>
-                <td>Pendiente emisión tasación</td>
-            </tr>
-            <tr>
-                <td>29</td>
-                <td>Tasación revisión garantías</td>
-            </tr>
-            <tr onclick="move(11)">
-                <td>30</td>
-                <td>Petición documentación adicional garantias VT</td>
-            </tr>
-        </table> 
-        <table id="formalizationTable" class="default" style="visibility: hidden;">
-            <caption>Formalización</caption>
-            <tr>
-                <td>31</td>
-                <td>Plantilla VT</td>
-            </tr>
-            <tr>
-                <td>32</td>
-                <td>Revisión VT</td>
-            </tr>
-            <tr>
-                <td>33</td>
-                <td>Consulta Riesgos desde VT</td>
-            </tr>
-            <tr>
-                <td>34</td>
-                <td>Revisión riesgos -1</td>
-            </tr>
-            <tr onclick="move(12)">
-                <td>35</td>
-                <td>Aprobación final hipoteca</td>
-            </tr>
-            <tr>
-                <td>36</td>
-                <td>Apertura de cuenta</td>
-            </tr>
-            <tr>
-                <td>37</td>
-                <td>Apertura de expediente</td>
-            </tr>
-            <tr>
-                <td>38</td>
-                <td>Elegido notario y fecha</td>
-            </tr>
-            <tr>
-                <td>39</td>
-                <td>Genración documentación</td>
-            </tr>
-            <tr>
-                <td>40</td>
-                <td>Documentación firmada</td>
-            </tr>
-            <tr>
-                <td>41</td>
-                <td>Pendiente firma</td>
-            </tr>
-            <tr>
-                <td>42</td>
-                <td>Subida documentación</td>
-            </tr>
-            <tr>
-                <td>43</td>
-                <td>Alta EE en protocolo notarios</td>
-            </tr>
-            <tr>
-                <td>44</td>
-                <td>Entegado a notario</td>
-            </tr>
-            <tr>
-                <td>45</td>
-                <td>Notario asignado</td>
-            </tr>
-            <tr>
-                <td>46</td>
-                <td>Pendiente subsanar errores</td>
-            </tr>
-            <tr>
-                <td>47</td>
-                <td>Errores subsanados</td>
-            </tr>
-            <tr>
-                <td>48</td>
-                <td>Acta emitida notario</td>
-            </tr>
-            <tr>
-                <td>49</td>
-                <td>Envío Doc. Contractual a notaría</td>
-            </tr>
-            <tr>
-                <td>50</td>
-                <td>Envío Doc. Contractual a gestoría</td>
-            </tr>
-            <tr>
-                <td>51</td>
-                <td>Pendiente en firma notaría</td>
-            </tr>
-            <tr>
-                <td>52</td>
-                <td>Pendiente activas expediente</td>
-            </tr>
-            <tr>
-                <td>53</td>
-                <td>Expediente activado</td>
-            </tr>
-        </table>
-    </div>
-</div>
 </body>
 
 </html>
