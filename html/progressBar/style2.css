@@ -1,14 +1,20 @@
 body {
     background-color: rgb(204, 206, 211);
-    margin-right: 50px;
-    margin-left: 50px;
+    /*margin-right: 50px;
+    margin-left: 50px;*/
+    margin: 0px;
+    font-family: Geneva,Tahoma,Verdana,sans-serif; 
 }
 h1 {  
     color: black;  
     font-size: 2em;
-    margin: 20px; 
+    margin-top: 0px;
+    padding: 20px;
+    margin-bottom: 30px;
     text-align: center;
-    font-family: Calibri, Geneva, Tahoma, sans-serif; 
+    background-color: rgb(241, 181, 154);
+    font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;  
+    height: 55px;
 }  
 h2{
     text-align: center;
@@ -16,16 +22,15 @@ h2{
     margin: 0px;
 }
 label{
-    font-size: 0.7em;
-    margin-bottom: 0px;
+    font-size: 12pt;
 }
 small{
-    font-size: 0.5em;
+    font-size: 10pt;
     margin-top: 0px;
+    margin-bottom: 10px;
 }
 #myProgress {
-    margin-top: 10px;
-    width: 100%;
+    margin: 20px; 
     background-color: #ddd;
 }
 #myBar {
@@ -36,8 +41,11 @@ small{
   line-height: 30px; /* To center it vertically */
   color: white;
 }
+#buttons{
+    margin: 20px;
+}
 #wrapper{
-    margin: 10px;
+    margin: 20px;
     text-align:center;
 }
 div.left {
@@ -67,8 +75,18 @@ div.right {
     color: red;
     font-size: 0.6em;
 }
-#description{
-    font-size: 0.5em;
+/*#description{
+    font-size: 12pt;
+}*/
+#primerDiv{
+    font-size: 12pt;
+    margin-top: 5px;
+    margin: 20px; 
+    text-align: center;
+    font-family: Geneva,Tahoma,Verdana,sans-serif; 
+    background-color: white;  
+    padding: 20px;
+    border-radius: 10px;
 }
 table {
    width: 100%;

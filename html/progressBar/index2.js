@@ -1,5 +1,7 @@
-var barProgress = 0;
+var barProgress;
 var phoneNumber;
+
+const NUMBER_STEPS = 55;
 /*
 function move() {
   if (barProgress == 0) {
@@ -39,6 +41,7 @@ function init() {
     phoneNumber = phone;
     // alert(phoneNumber);
     document.getElementById("error").innerHTML = '';
+    barProgress = 0;
   }
 }
 
@@ -53,21 +56,66 @@ function changeNumber() {
   }
 }
 
+function calcProgress(step){
+  switch(step){
+    case 1:
+      return 2;//1.81;
+    case 2:
+      return 13;//12.72;
+    case 3:
+      return 15;//14.54;
+    case 4:
+      return 16;//16.36;
+    case 5:
+      return 18;//18.18;
+    case 6:
+      return 22;//21.81;
+    case 7:
+      return 27;//27.27;
+    case 8:
+      return 38;//38.18;
+    case 9:
+      return 45;//45.45;
+    case 10:
+      return 53;//52.72;
+    case 11:
+      return 58;//58.18;
+    case 12:
+      return 67;//67.27;
+  }
 
-function move(maxim) {
+}
+
+function move(step) {
   // if (barProgress == 0) {
   // barProgress = 1;
   var elem = document.getElementById("myBar");
-  var width = 0;
-  var id = setInterval(frame, 1000);
+  var width = barProgress;
+  var id; 
+  var progress = calcProgress(step);
+  if(barProgress<progress){
+    id = setInterval(positiveFrame, 10);
+  }else{
+    id = setInterval(negativeFrame, 10);
+  }
 
-
-  function frame() {
-    if (width >= 100) {
+  function positiveFrame() {
+    if (width >= progress) {
       clearInterval(id);
-      barProgress = 0;
+      barProgress = progress;
     } else {
       width++;
+      elem.style.width = width + "%";
+      elem.innerHTML = width + "%";
+    }
+  }
+
+  function negativeFrame() {
+    if (width <= progress) {
+      clearInterval(id);
+      barProgress = progress;
+    } else {
+      width--;
       elem.style.width = width + "%";
       elem.innerHTML = width + "%";
     }

@@ -5,59 +5,48 @@
 
 <body>
 
-    <h1>Demostración asistente virtual EvoBank<h1>
+    <h1>Demostración asistente virtual EvoBank</h1>
 
-            <div>
-                <div id="description">Para utilitzar el asistente virtual se requiere conectarse a
-                    la sandbox de Twilio. Para hacerlo se a de agregar el siguiente número: +1(415)523-8886.
-                    Una vez agregado, lo único que falta por hacer es enviarle el mensaje "join vowel-journey"
-                    para connectarse al agente.
-                </div>
-                <br>
-                <label for="phone">Entra un número de telefono para hacer la prueba:</label>
-                <br>
-                <input type="tel" id="phone" name="phone" pattern="[0-9]{9}" required>
-                <br>
-                <small>Formato: 123456789</small>
-                <br>
-                <input id="buttonPhoneNumber" type="submit" value="Iniciar prueba" onclick="init()">
-            </div>
+    <div id="primerDiv">
+        <div id="description">Para utilitzar el asistente virtual se requiere conectarse a
+            la sandbox de Twilio. Para hacerlo se a de agregar el siguiente número: +1(415)523-8886.
+            Una vez agregado, lo único que falta por hacer es enviarle el mensaje "join vowel-journey"
+            para connectarse al agente.
+        </div>
+        <br>
+        <label for="phone">Entra un número de telefono para hacer la prueba:</label>
+        <br>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{9}" required>
+        <br>
+        <small>Formato: 123456789</small>
+        <br>
+        <input id="buttonPhoneNumber" type="submit" value="Iniciar prueba" onclick="init()">
+    </div>
 
-            <div id="error"></div>
+    <div id="error"></div>
 
-            <div id="myProgress" style="visibility: hidden;">
-                <div id="myBar"></div>
-            </div>
+    <div id="myProgress" style="visibility: hidden;">
+        <div id="myBar"></div>
+    </div>
 
-            <br>
-            <div id="buttons" style="visibility: hidden;">
-                <button onclick="move()">Anterior estado</button>
-                <button onclick="move()">Siguiente estado</button>
-            </div>
+    <br>
+    <div id="buttons" style="visibility: hidden;">
+        <button onclick="move()">Anterior estado</button>
+        <button onclick="move()">Siguiente estado</button>
+    </div>
 
-            <br>
+    <br>
 
 
 <div id="wrapper"  style="visibility: hidden;">
     <div class="left">
-                    <!-- WRAPPER COMENTAT
-        <h2>Estados disponibles para testear</h2>
-        <button id="buttonState" onclick="sendState(1)">Enviar bienvenida (Paso 0)</button> 
-        <button id="buttonState" onclick="sendState(2)">Enviar firma documentación precontractual (Paso 6)</button>
-        <button id="buttonState" onclick="sendState(3)">Enviar notificación documentación precontractual recibida (Paso 6.1)</button>
-        <button id="buttonState" onclick="sendState(4)">Enviar NS Pendiente (Paso 7)</button>
-        <button id="buttonState" onclick="sendState(5)">Enviar NS Solicitada (Paso 8)</button>
-        <button id="buttonState" onclick="sendState(6)">Enviar check list VD (Paso 10)</button>
-        <button id="buttonState" onclick="sendState(7)">Enviar petición Docu adicional VD (Paso 13)</button>
-        <button id="buttonState" onclick="sendState(8)">Enviar tasación pendiente (Paso 19)</button>
-        <button id="buttonState" onclick="sendState(9)">Enviar tasación pagado (Paso 23)</button>
-        <button id="buttonState" onclick="sendState(10)">Enviar visita finalizada (Paso 27)</button>
-        <button id="buttonState" onclick="sendState(11)">Enviar petición documentación adicional garantias VT (Paso 30)</button>
-        <button id="buttonState" onclick="sendState(12)">Enviar aprobación final hipoteca(Paso 35)</button>
-                    -->
-                    <table  id="requestTable" class="default" style="visibility: hidden;">
+        <table  id="requestTable" class="default" style="visibility: hidden;">
                         <caption>Solicitud</caption>
-                        <tr onclick="">
+                        <tr onclick="move(1)">
+                            <td>0</td>
+                            <td>Preaprobación</td>
+                        </tr>
+                        <tr>
                             <td>1</td>
                             <td>Autorizaciones</td>
                         </tr>
@@ -65,9 +54,9 @@
                             <td>2</td>
                             <td>Datos personales</td>
                         </tr>
-                    </table>
-        
-                    <table id="processTable1" class="default" style="visibility: hidden;"> 
+        </table>
+    
+        <table id="processTable1" class="default" style="visibility: hidden;"> 
                         <caption>Proceso hipotecario</caption>
                         <tr>
                             <td>3</td>
@@ -81,15 +70,19 @@
                             <td>5</td>
                             <td>Pendiente documentación</td>
                         </tr>
-                        <tr>
+                        <tr onclick="move(2)">
                             <td>6</td>
                             <td>Firma documentación precontractual</td>
                         </tr>
-                        <tr>
+                        <tr onclick="move(3)">
+                            <td>6.1</td>
+                            <td>Assignación código solicitud</td>
+                        </tr>
+                        <tr onclick="move(4)">
                             <td>7</td>
                             <td>En Sanción</td>
                         </tr>
-                        <tr>
+                        <tr onclick="move(5)">
                             <td>8</td>
                             <td>NS Pendiente</td>
                         </tr>
@@ -97,7 +90,7 @@
                             <td>9</td>
                             <td>NS Solicitada</td>
                         </tr>
-                        <tr>
+                        <tr onclick="move(6)">
                             <td>10</td>
                             <td>Check list VD</td>
                         </tr>
@@ -109,7 +102,7 @@
                             <td>12</td>
                             <td>NS en revisión por garantías</td>
                         </tr>
-                        <tr>
+                        <tr onclick="move(7)">
                             <td>13</td>
                             <td>Petición Docu adicional VD</td>
                         </tr>
@@ -133,7 +126,7 @@
                             <td>18</td>
                             <td>Petición docu adicional riesgos</td>
                         </tr>
-                        <tr>
+                        <tr onclick="move(8)">
                             <td>19</td>
                             <td>Tasación pendiente</td>
                         </tr>
@@ -149,7 +142,7 @@
                             <td>22</td>
                             <td>Tasación pendiente de pago</td>
                         </tr>
-                        <tr>
+                        <tr onclick="move(9)">
                             <td>23</td>
                             <td>Tasación pagado</td>
                         </tr>
@@ -165,12 +158,7 @@
                             <td>26</td>
                             <td>Visita agendada</td>
                         </tr>
-                        <tr>
-                            <td>27</td>
-                            <td>Visita finalizada</td>
-                        </tr>
-
-                    </table>
+        </table>
     </div>
     <div class="right">
         <!--
@@ -391,6 +379,10 @@
         -->
         <table id="processTable2" class="default" style="visibility: hidden;"> 
             <caption>Proceso hipotecario</caption>
+            <tr onclick="move(10)">
+                <td>27</td>
+                <td>Visita finalizada</td>
+            </tr>
             <tr>
                 <td>28</td>
                 <td>Pendiente emisión tasación</td>
@@ -399,12 +391,11 @@
                 <td>29</td>
                 <td>Tasación revisión garantías</td>
             </tr>
-            <tr>
+            <tr onclick="move(11)">
                 <td>30</td>
                 <td>Petición documentación adicional garantias VT</td>
             </tr>
-        </table>
-        
+        </table> 
         <table id="formalizationTable" class="default" style="visibility: hidden;">
             <caption>Formalización</caption>
             <tr>
@@ -423,7 +414,7 @@
                 <td>34</td>
                 <td>Revisión riesgos -1</td>
             </tr>
-            <tr>
+            <tr onclick="move(12)">
                 <td>35</td>
                 <td>Aprobación final hipoteca</td>
             </tr>
