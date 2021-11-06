@@ -52,7 +52,7 @@ function changeNumber() {
     document.getElementById("error").innerHTML = '<p>Introduzca un número de telefono válido<p>';
   } else {
     phoneNumber = phone;
-    alert(phoneNumber);
+    // alert(phoneNumber);
     document.getElementById("error").innerHTML = '';
   }
 }
