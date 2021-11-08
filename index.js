@@ -74,6 +74,7 @@ function calcProgress(step){
 }
 
 function move(step) {
+  sendState(step);
   var elem = document.getElementById("myBar");
   var width = barProgress;
   var id; 
