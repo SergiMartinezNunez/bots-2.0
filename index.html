@@ -36,91 +36,91 @@
             <div class="left">
                 <h1 class="stepPhase">Solicitud</h1>
                 <table id="requestTable" class="default" style="visibility: hidden;">
-                    <tr class="selectableRow" onclick="move(1)">
+                    <tr id="0" class="selectableRow" onclick="setState(1)">
                         <td>0 - Preaprobación</td>
                     </tr>
-                    <tr>
+                    <tr id="1">
                         <td>1 - Autorizaciones</td>
                     </tr>
-                    <tr>
+                    <tr id="2">
                         <td>2 - Datos personales</td>
                     </tr>
                 </table>
                 <h1 class="stepPhase">Proceso hipotecario</h1>
                 <table id="processTable1" class="default" style="visibility: hidden;">
-                    <tr>
+                    <tr id="3">
                         <td>3 - Datos económicos</td>
                     </tr>
-                    <tr>
+                    <tr id="4">
                         <td>4 - Datos Vivienda</td>
                     </tr>
-                    <tr>
+                    <tr id="5">
                         <td>5 - Pendiente documentación</td>
                     </tr>
-                    <tr class="selectableRow" onclick="move(2)">
+                    <tr id="6" class="selectableRow" onclick="setState(2)">
                         <td>6 - Firma documentación precontractual</td>
                     </tr>
-                    <tr class="selectableRow" onclick="move(3)">
+                    <tr id="7" class="selectableRow" onclick="setState(3)">
                         <td>6.1 - Assignación código solicitud</td>
                     </tr>
-                    <tr class="selectableRow" onclick="move(4)">
+                    <tr id="8"class="selectableRow" onclick="setState(4)">
                         <td>7 - En Sanción</td>
                     </tr>
-                    <tr class="selectableRow" onclick="move(5)">
+                    <tr id="9" class="selectableRow" onclick="setState(5)">
                         <td>8 - NS Pendiente</td>
                     </tr>
-                    <tr>
+                    <tr id="10">
                         <td>9 - NS Solicitada</td>
                     </tr>
-                    <tr class="selectableRow" onclick="move(6)">
+                    <tr id="11" class="selectableRow" onclick="setState(6)">
                         <td>10 - Check list VD</td>
                     </tr>
-                    <tr>
+                    <tr id="12">
                         <td>11 - Revisión VD</td>
                     </tr>
-                    <tr>
+                    <tr id="13">
                         <td>12 - NS en revisión por garantías</td>
                     </tr>
-                    <tr class="selectableRow" onclick="move(7)">
+                    <tr id="14" class="selectableRow" onclick="setState(7)">
                         <td>13 - Petición Docu adicional VD</td>
                     </tr>
-                    <tr>
+                    <tr id="15">
                         <td>14 - Petición Docu adicional Garantías</td>
                     </tr>
-                    <tr>
+                    <tr id="16">
                         <td>15 - Petición Docu adicional Garantías-VD</td>
                     </tr>
-                    <tr>
+                    <tr id="17">
                         <td>16 - Revisión analista de riesgos</td>
                     </tr>
-                    <tr>
+                    <tr id="18">
                         <td>17 - Consulta duda riesgos</td>
                     </tr>
-                    <tr>
+                    <tr id="19">
                         <td>138 - Petición docu adicional riesgos</td>
                     </tr>
-                    <tr class="selectableRow" onclick="move(8)">
+                    <tr id="20" class="selectableRow" onclick="setState(8)">
                         <td>19 - Tasación pendiente</td>
                     </tr>
-                    <tr>
+                    <tr id="21">
                         <td>20 - Tasación a validar</td>
                     </tr>
-                    <tr>
+                    <tr id="22">
                         <td>21 - Tasación subsanada</td>
                     </tr>
-                    <tr>
+                    <tr id="23">
                         <td>22 - Tasación pendiente de pago</td>
                     </tr>
-                    <tr class="selectableRow" onclick="move(9)">
+                    <tr id="24" class="selectableRow" onclick="setState(9)">
                         <td>23 - Tasación pagado</td>
                     </tr>
-                    <tr>
+                    <tr id="25">
                         <td>24 - Tasación solicitada</td>
                     </tr>
-                    <tr>
+                    <tr id="26">
                         <td>25 - Pendiente visita tasación</td>
                     </tr>
-                    <tr>
+                    <tr id="27">
                         <td>26 - Visita agendada</td>
                     </tr>
                 </table>
@@ -128,7 +128,7 @@
             <div class="right">
                 <h1 class="stepPhase">Proceso hipotecario</h1>
                 <table id="processTable2" class="default" style="visibility: hidden;">
-                    <tr class="selectableRow" onclick="move(10)">
+                    <tr id="20" class="selectableRow" onclick="setState(10)">
                         <td>27 - Visita finalizada</td>
                     </tr>
                     <tr>
@@ -137,7 +137,7 @@
                     <tr>
                         <td>29 - Tasación revisión garantías</td>
                     </tr>
-                    <tr class="selectableRow" onclick="move(11)">
+                    <tr class="selectableRow" onclick="setState(11)">
                         <td>30 - Petición documentación adicional garantias VT</td>
                     </tr>
                 </table>
@@ -156,7 +156,7 @@
                     <tr>
                         <td>34 - Revisión riesgos -1</td>
                     </tr>
-                    <tr class="selectableRow" onclick="move(12)">
+                    <tr class="selectableRow" onclick="setState(12)">
                         <td>35 - Aprobación final hipoteca</td>
                     </tr>
                     <tr>

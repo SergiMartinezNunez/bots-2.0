@@ -39,7 +39,7 @@
  const projectId = 'mrw-wywq';
  const phoneNumber = "+19852395883";
  const accountSid = 'AC2c6b3c391ccf76477ea445e256db5ddb';
- const authToken = '4d3a07bf9b45e8e3bcc1a7824a60eb78';
+ const authToken = '8e6dae98631fa6acbac53779094e795a';
  var phone;
 
  const client = require('twilio')(accountSid, authToken);
@@ -74,12 +74,13 @@
 
 app.post('/state', async function(req, res) {
     console.log("He rebut una peticio");
-    console.log("Req -> " + req);
-    const body = req.body;
+    //console.log("Req -> " + req);
+    const body = req.body;  // const body = JSON.parse(req.body);
     const state = body.estado;
     phone = 'whatsapp:+34'+body.phone;
-    // var json = JSON.stringify(req.body);
     // console.log("json -> " + json);
+    // console.log("phone -> " + phone);
+    // console.log("body.phone -> " + body.phone);
     // FI NOU
      var text;
     if(state=="1"){
@@ -107,13 +108,7 @@ app.post('/state', async function(req, res) {
     }else if(state=="12"){
       text = "¡Enhorabuena, tu operación ha sido validada! Para que tu gestor contacte contigo, accede a la sección “Firma” a través de este link https://hipoteca.evobanco.com/portal-hipotecas";
     }
-    //const dialogflowResponse = (await sessionClient.detectIntent(
-    //    text, id, body)).fulfillmentText;
-    //const twiml = new  MessagingResponse();
-    //const message = twiml.message(dialogflowResponse);
-   // res.send(twiml.toString());
    console.log("Abans d'enviar la resposta");
-   // console.log("body -> " + body);
    console.log("state -> " + state);
    console.log("text -> " + text);
    console.log("phone -> " + phone);

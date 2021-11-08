@@ -74,15 +74,15 @@ function calcProgress(step){
 }
 
 function move(step) {
-  sendState(step);
   var elem = document.getElementById("myBar");
   var width = barProgress;
   var id; 
   var progress = calcProgress(step);
-  console.log("progress -> "+progress);
-  console.log("barProgress -> "+barProgress);
-  console.log("step -> "+step);
-  console.log("width -> "+width);
+  console.log("phone -> "+phoneNumber);
+  // console.log("progress -> "+progress);
+  // console.log("barProgress -> "+barProgress);
+  // console.log("step -> "+step);
+  // console.log("width -> "+width);
   if(barProgress<progress){
     id = setInterval(positiveFrame, 10);
   }else{
@@ -112,6 +112,30 @@ function move(step) {
   }
 }
 
+function setState(nState){
+  sendState(nState);
+  move(nState);
+  //updateTables(nState);
+}
+
+// function updateTables(nState){
+//   if(nState==){
+// 
+//   }else if(nState==){
+// 
+//   }else if(nState==){
+// 
+//   }else if(nState==){
+// 
+//   }else if(nState==){
+// 
+//   }else if(nState==){
+// 
+//   }else if(nState==){
+// 
+//   }
+// }
+
 function sendState(nState) {
   var req = new XMLHttpRequest();
   req.onreadystatechange = function (aEvt) {
@@ -125,9 +149,13 @@ function sendState(nState) {
   req.open('POST', 'https://dialogflow-twilio-oflt44nnna-lm.a.run.app/state', true);
   req.setRequestHeader('Access-Control-Allow-Origin', '*');
   req.setRequestHeader('Content-Type', 'application/json');
-  var json = JSON.stringify({ "estado": nState, "phone": phoneNumber });
+  var json = JSON.stringify({"estado": nState, "phone": phoneNumber});
   req.send(json);
-  console.log("json -> " + JSON.stringify({ "estado": nState, "phone": phoneNumber }));
-  console.log("req.body -> " + req.body);
+  console.log("json -> " + JSON.stringify({"estado": nState, "phone": phoneNumber}));
+  console.log(req.body);
+  // console.log("req.body -> " + req.body.estado);
+  // console.log("req.body -> " + req.body.phone);
   console.log("req -> " + req);
 }
+
+
