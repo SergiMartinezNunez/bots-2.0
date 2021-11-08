@@ -1,28 +1,6 @@
 var barProgress;
 var phoneNumber;
-
 const NUMBER_STEPS = 55;
-/*
-function move() {
-  if (barProgress == 0) {
-    barProgress = 1;
-    var elem = document.getElementById("myBar");
-    var width = 0;
-    var id = setInterval(frame, 1000);
-
-
-    function frame() {
-      if (width >= 100) {
-        clearInterval(id);
-        barProgress = 0;
-      } else {
-        width++;
-        elem.style.width = width + "%";
-        elem.innerHTML = width + "%";
-      }
-    }
-  }
-} */
 
 function init() {
   var phone = document.getElementById("phone").value;
@@ -30,12 +8,10 @@ function init() {
     document.getElementById("error").innerHTML = '<p>Introduzca un número de telefono válido<p>';
   } else {
     document.getElementById("segonDiv").style.visibility = "visible";
-    //document.getElementById("wrapper").style.visibility = "visible";
     document.getElementById("requestTable").style.visibility = "visible";
     document.getElementById("processTable1").style.visibility = "visible";
     document.getElementById("processTable2").style.visibility = "visible";
     document.getElementById("formalizationTable").style.visibility = "visible";
-    //document.getElementById("buttons").style.visibility = "visible";
     document.getElementById("buttonPhoneNumber").value = "Cambiar número";
     document.getElementById("buttonPhoneNumber").onclick = function () { changeNumber(); };
     phoneNumber = phone;
@@ -52,7 +28,6 @@ function changeNumber() {
     document.getElementById("error").innerHTML = '<p>Introduzca un número de telefono válido<p>';
   } else {
     phoneNumber = phone;
-    // alert(phoneNumber);
     document.getElementById("error").innerHTML = '';
   }
 }
@@ -96,7 +71,6 @@ function calcProgress(step){
       document.getElementById("lastSent").innerHTML = '<p>Último mensaje enviado: Estado 35</p>';
       return 67;//67.27;
   }
-
 }
 
 function move(step) {
@@ -152,7 +126,6 @@ function sendState(nState) {
   req.setRequestHeader('Content-Type', 'application/json');
   var json = JSON.stringify({ "estado": nState, "phone": phoneNumber });
   req.send(json);
-  // req.send(JSON.stringify({"estado": nState}));
   console.log("json -> " + JSON.stringify({ "estado": nState, "phone": phoneNumber }));
   console.log("req.body -> " + req.body);
   console.log("req -> " + req);
