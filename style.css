@@ -68,6 +68,7 @@ small{
     padding: 15px;
 }
 div.left {
+    margin-left: 25px;
     margin-right: 25px;
     box-sizing: border-box;  /* <------- required */
     width: 50%;  /* <------------------- required */
@@ -78,6 +79,7 @@ div.left {
     font-weight: bold;  
 }
 div.right {
+    margin-right: 25px;
     margin-left: 25px;
     overflow: hidden;  /* <------------- required */
     /*border: 1px solid red;*/
@@ -135,6 +137,8 @@ th, td {
     background-color: black;
     color: white;
     cursor: pointer;
+    border-style: hidden;
+    border-radius: 30px;
 }
 .stepPhase{
     color: black;
@@ -174,4 +178,9 @@ th, td {
     
     font-style: italic;*/
     font-weight: bold;
+}
+.completed{
+    color: grey;
+    font-weight: bold;
+    /*font-style: italic;*/
 }
