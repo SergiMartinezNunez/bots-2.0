@@ -367,7 +367,7 @@ function sendState(nState) {
         console.log("Error loading page\n");
     }
   };
-  req.open('POST', 'https://dialogflow-twilio-oflt44nnna-lm.a.run.app/state', true);
+  req.open('POST', 'https://dialogflow-twilio-plghzkocha-lm.a.run.app/state', true);
   req.setRequestHeader('Access-Control-Allow-Origin', '*');
   req.setRequestHeader('Content-Type', 'application/json');
   var json = JSON.stringify({"estado": nState, "phone": phoneNumber});
