@@ -369,6 +369,8 @@ function sendState(nState) {
   };
   req.open('POST', 'https://dialogflow-twilio-plghzkocha-lm.a.run.app/state', true);
   req.setRequestHeader('Access-Control-Allow-Origin', '*');
+  req.setRequestHeader('Accept', '*');
+  req.setRequestHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
   req.setRequestHeader('Content-Type', 'application/json');
   var json = JSON.stringify({"estado": nState, "phone": phoneNumber});
   req.send(json);
